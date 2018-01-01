@@ -9,6 +9,10 @@ import {CommonModule} from '@angular/common';
 import {RecipeStartComponent} from './recipe-start/recipe-start.component';
 import {RecipesRoutingModule} from './recipes-routing.module';
 import {SharedModule} from '../shared/shared.module';
+import {StoreModule} from '@ngrx/store';
+import {recipeReducers} from './store/recipe.reducers';
+import {EffectsModule} from '@ngrx/effects';
+import {RecipeEffects} from './store/recipe.effects';
 
 @NgModule({
   declarations: [
@@ -24,6 +28,8 @@ import {SharedModule} from '../shared/shared.module';
     ReactiveFormsModule,
     RecipesRoutingModule,
     SharedModule,
+    StoreModule.forFeature('recipes', recipeReducers),
+    EffectsModule.forFeature([RecipeEffects])
   ]
 })
 
