@@ -6,7 +6,7 @@
 <hr>
 <div class="row">
     <div class="col-xs-12">
-      <app-recipe-item *ngFor="let recipeEL of recipes; let i = index" [recipe]="recipeEL" [index]="i"></app-recipe-item>
+      <app-recipe-item *ngFor="let recipeEL of (recipeState | async).recipes; let i = index" [recipe]="recipeEL" [index]="i"></app-recipe-item>
       <!--<div *ngFor="let recipeEL of recipes; let i = index">
         <a style="cursor: pointer" class="list-group-item clearfix" [routerLink]="i" routerLinkActive="active">
           <div class="pull-left">
